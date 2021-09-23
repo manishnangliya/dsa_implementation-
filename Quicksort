@@ -2,23 +2,33 @@
 
 using namespace std;
 
-int partition(int arr[], int lb , int ub)
-{
-    int pivot = arr[lb];
-    int start =lb,end=ub;
-    while(start<end)
-    {
-        while(arr[start]<=pivot)
-          start++;
-        while(arr[end] > pivot)
-           end--;
-        if(start< end)
-        {
-            swap(arr[start],arr[end]);
-        }
+//int partition(int arr[], int lb , int ub)
+// {
+//     int pivot = arr[lb];
+//     int start =lb,end=ub;
+//     while(start<end)
+//     {
+//         while(arr[start]<=pivot)
+//           start++;
+//         while(arr[end] > pivot)
+//           end--;
+//         if(start< end)
+//         {
+//             swap(arr[start],arr[end]);
+//         }
+//     }
+//     swap(arr[end], arr[lb]);
+//     return end;
+// }
+int partition (int a[], int l, int r) {
+    int pivot = a[r];
+    int i = l;
+    for (int j = l; j < r; j++) {
+        if (a[j] < pivot) 
+            swap (a[i++], a[j]);
     }
-    swap(arr[end], arr[lb]);
-    return end;
+    swap (a[i], a[r]);
+    return i;
 }
 void QuickSort(int arr[], int lb,int ub)
 {
